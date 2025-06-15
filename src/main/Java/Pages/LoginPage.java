@@ -13,7 +13,7 @@ public class LoginPage extends Base{
     }
 
     // Elementos en la página de login
-    @FindBy(xpath = "//div[@class='login_log']")
+    @FindBy(xpath = "//div[@class='login_logo']")
     private WebElement logo;
 
     @FindBy(id = "user-name")
