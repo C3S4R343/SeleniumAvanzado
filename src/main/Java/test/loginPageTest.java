@@ -3,13 +3,19 @@ package test;
 import Pages.LoginPage;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.testng.Assert;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
 public class loginPageTest {
     private WebDriver driver;
     private LoginPage loginPage;
+
+    public WebDriver getDriver() {
+        return driver;
+    }
 
     @BeforeMethod
     public void setUp(){
@@ -25,9 +31,20 @@ public class loginPageTest {
         loginPage.elementsVisible();
     }
 
-    @Test
-    public void testLogin(){
-        loginPage.login("standard_user", "secret_sauce");
+    @DataProvider(name = "users")
+    public Object[][] userProvider(){
+        return new Object[][]{
+                {"standard_user", "secret_sauce"},
+                {"locked_out_user", "secret_sauce"},
+                {"problem_user", "secret_sauce"}
+        };
+    }
+
+
+    @Test(dataProvider = "users")
+    public void testLogin(String username, String password){
+        loginPage.login(username, password);
+        Assert.assertTrue(username.equals("locked_out_user"), "El login fallo para " + username);
     }
 
     @AfterMethod

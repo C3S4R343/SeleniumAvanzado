@@ -1,9 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
-<suite name="All Test Suite"><test verbose="2" preserve-order="true" name="C:/Users/cesar/IdeaProjects/SeleniumAvanzado">
-    <classes><class name="test.loginPageTest"><methods>
-        <include name="verifyElementsLogin"/><include name="testLogin"/>
-    </methods>
-    </class>
-    </classes>
-</test></suite>
+<suite name="All Test Suite">
+
+    <listeners>
+        <listener class-name="utils.TestListener"/>
+    </listeners>
+
+    <test verbose="2" preserve-order="true" name="C:/Users/cesar/IdeaProjects/SeleniumAvanzado">
+        <classes>
+            <class name="test.loginPageTest">
+                <methods>
+                    <include name="verifyElementsLogin"/>
+                    <include name="testLogin"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+
+</suite>

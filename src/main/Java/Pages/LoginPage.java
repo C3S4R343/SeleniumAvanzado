@@ -13,7 +13,7 @@ public class LoginPage extends Base{
     }
 
     // Elementos en la página de login
-    @FindBy(xpath = "//div[@class='login_logo']")
+    @FindBy(xpath = "//div[@class='login_log']")
     private WebElement logo;
 
     @FindBy(id = "user-name")
@@ -35,5 +35,9 @@ public class LoginPage extends Base{
     //Metodo para verificar que elementos son visibles
     public void elementsVisible(){
         Assert.assertTrue(logo.isDisplayed(),"Logo visible");
+        Assert.assertTrue(passwordField.isDisplayed(),"El campo de contrase;a no esta visible");
+        Assert.assertTrue(btnLogin.isDisplayed(),"El boton de login no esta visible");
     }
+
+
 }
