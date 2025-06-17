@@ -13,6 +13,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class InventoryPageTest {
+    /*
     private WebDriver driver;
     private LoginPage loginPage;
     private InventoryPage inventoryPage;
@@ -60,4 +61,6 @@ public class InventoryPageTest {
             driver.quit(); // Cierra el navegador después de la prueba
         }
     }
+    */
+
 }

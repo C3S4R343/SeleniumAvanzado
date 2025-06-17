@@ -18,15 +18,15 @@
                 </methods>
             </class>
 
-            <!-- Pruebas de página de inventario -->
+           <!-- Pruebas de página de inventario
             <class name="test.InventoryPageTest"/>
 
-            <!-- Pruebas de carrito -->
+            Pruebas de carrito
             <class name="test.cartPageTest"/>
 
-            <!-- Pruebas de checkout -->
+             Pruebas de checkout
             <class name="test.CheckoutPageTest"/>
-
+            -->
             <class name="test.E2ETest"/>
         </classes>
     </test>

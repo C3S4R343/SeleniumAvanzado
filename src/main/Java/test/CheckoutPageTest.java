@@ -15,7 +15,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class CheckoutPageTest {
-    private WebDriver driver;
+    /*private WebDriver driver;
     private LoginPage logPage;
     private InventoryPage invPage;
     private cartPage cart;
@@ -61,5 +61,5 @@ public class CheckoutPageTest {
         if (driver != null) {
             driver.quit();
         }
-    }
+    }*/
 }

@@ -4,9 +4,13 @@ import Pages.CheckoutPage;
 import Pages.InventoryPage;
 import Pages.LoginPage;
 import Pages.cartPage;
+import com.google.gson.internal.bind.util.ISO8601Utils;
+import org.openqa.selenium.Alert;
+import org.openqa.selenium.NoAlertPresentException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
+import org.openqa.selenium.support.ui.Sleeper;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
@@ -57,12 +61,22 @@ public class E2ETest {
         // Paso 2: Agregar productos al carrito
         inventoryPage.enlistarElementos();  // Método que agrega uno o más productos
         inventoryPage.verifyCart();         // Hace clic en ícono del carrito
-
+        try{
+            Thread.sleep(3000);
+            Alert aler = driver.switchTo().alert();
+            aler.accept();
+        } catch (NoAlertPresentException e){
+            System.out.println("No alert");
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        }
         // Paso 3: Proceder al checkout
         cartPage.checkOut();               // Hace clic en el botón “Checkout”
 
         // Paso 4: Llenar formulario
         checkoutPage.checkElements();      // Valida que los campos estén visibles
+
+
         checkoutPage.fillInformation("Cesar", "Gonzalez", "37800");  // Llenado
     }
 
