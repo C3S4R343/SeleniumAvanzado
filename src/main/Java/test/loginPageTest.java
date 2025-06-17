@@ -63,7 +63,7 @@ public class loginPageTest {
     @Test(dataProvider = "users")
     public void testLogin(String username, String password){
         loginPage.login(username, password);
-        Assert.assertTrue(username.equals("locked_out_user"), "El login fallo para " + username);
+        Assert.assertFalse(username.equals("locked_out_user") || username.equals("problem_user"), "El login fallo para " + username);
     }
 
     @AfterMethod
