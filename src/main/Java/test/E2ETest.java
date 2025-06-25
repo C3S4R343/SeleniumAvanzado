@@ -57,10 +57,6 @@ public class E2ETest {
     public void testEndToEndPurchaseFlow() {
         // Paso 1: Login
         loginPage.login("standard_user", "secret_sauce");
-
-        // Paso 2: Agregar productos al carrito
-        inventoryPage.enlistarElementos();  // Método que agrega uno o más productos
-        inventoryPage.verifyCart();         // Hace clic en ícono del carrito
         try{
             Thread.sleep(3000);
             Alert aler = driver.switchTo().alert();
@@ -70,9 +66,21 @@ public class E2ETest {
         } catch (InterruptedException e) {
             throw new RuntimeException(e);
         }
+        // Paso 2: Agregar productos al carrito
+        inventoryPage.enlistarElementos();  // Método que agrega uno o más productos
+        inventoryPage.verifyCart();         // Hace clic en ícono del carrito
+
         // Paso 3: Proceder al checkout
         cartPage.checkOut();               // Hace clic en el botón “Checkout”
-
+        try{
+            Thread.sleep(3000);
+            Alert aler = driver.switchTo().alert();
+            aler.accept();
+        } catch (NoAlertPresentException e){
+            System.out.println("No alert");
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        }
         // Paso 4: Llenar formulario
         checkoutPage.checkElements();      // Valida que los campos estén visibles
 
