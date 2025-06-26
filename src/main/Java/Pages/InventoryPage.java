@@ -58,4 +58,8 @@ public class InventoryPage extends Base{
             addToCartButtons.get(index).click(); // Se obtiene el botón según el índice y se hace clic en él
         }
     }
+
+    public boolean isOnInventoryPage() {
+        return driver.getCurrentUrl().contains("https://www.saucedemo.com/inventory.html");
+    }
 }

@@ -14,20 +14,12 @@
             <class name="test.loginPageTest">
                 <methods>
                     <include name="verifyElementsLogin"/>
-                    <include name="testLogin"/>
                 </methods>
             </class>
 
-           <!-- Pruebas de página de inventario
-            <class name="test.InventoryPageTest"/>
-
-            Pruebas de carrito
-            <class name="test.cartPageTest"/>
-
-             Pruebas de checkout
-            <class name="test.CheckoutPageTest"/>
-            -->
             <class name="test.E2ETest"/>
+
+            <class name="runner.CucumberTestRunner"/>
         </classes>
     </test>
 </suite>

@@ -50,21 +50,21 @@ public class loginPageTest {
         loginPage.elementsVisible();
     }
 
-    @DataProvider(name = "users")
-    public Object[][] userProvider(){
-        return new Object[][]{
-                {"standard_user", "secret_sauce"},
-                {"locked_out_user", "secret_sauce"},
-                {"problem_user", "secret_sauce"}
-        };
-    }
-
-
-    @Test(dataProvider = "users")
-    public void testLogin(String username, String password){
-        loginPage.login(username, password);
-        Assert.assertFalse(username.equals("locked_out_user") || username.equals("problem_user"), "El login fallo para " + username);
-    }
+//    @DataProvider(name = "users")
+//    public Object[][] userProvider(){
+//        return new Object[][]{
+//                {"standard_user", "secret_sauce"},
+//                {"locked_out_user", "secret_sauce"},
+//                {"problem_user", "secret_sauce"}
+//        };
+//    }
+//
+//
+//    @Test(dataProvider = "users")
+//    public void testLogin(String username, String password){
+//        loginPage.login(username, password);
+//        Assert.assertFalse(username.equals("locked_out_user") || username.equals("problem_user"), "El login fallo para " + username);
+//    }
 
     @AfterMethod
     public void tearDown(){

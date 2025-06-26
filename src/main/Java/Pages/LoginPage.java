@@ -40,4 +40,7 @@ public class LoginPage extends Base{
     }
 
 
+    public void goToLoginPage() {
+        driver.get("https://www.saucedemo.com/");
+    }
 }
